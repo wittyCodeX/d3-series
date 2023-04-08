@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bar Chart</title>
+</head>
+
+<body>
+    <script type="module">
+        import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+      const data = [4, 8, 15, 16, 23, 42];
+      const div = d3
+        .create("div")
+        .style("font", "10px sans-serif")
+        .style("text-align", "right")
+        .style("color", "white");
+
+      div
+        .selectAll("div")
+        .data(data)
+        .join("div")
+        .style("background", "steelblue")
+        .style("padding", "3px")
+        .style("margin", "1px")
+        .style("width", (d) => `${d * 10}px`)
+        .text((d) => d);
+
+      document.body.append(div.node());
+    </script>
+</body>
+
+</html>
